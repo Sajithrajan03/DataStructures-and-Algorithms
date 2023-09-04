@@ -1,7 +1,3 @@
-# Radix sort in Python
-
-
-# Using counting sort to sort the elements in the basis of significant places
 def countingSort(array, place):
     size = len(array)
     output = [0] * size
