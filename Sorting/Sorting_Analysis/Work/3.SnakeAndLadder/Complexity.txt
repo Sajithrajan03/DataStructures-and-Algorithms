@@ -1,0 +1,6 @@
+Complexity Analysis:
+
+- The complexity for creating the graph is O(n²) because we iterate through each square.
+- The complexity for BFS-based tasks is O(n + m), where n is the number of vertices (squares) and m is the number of edges (snakes and ladders).
+- The topological sort-based cycle detection task also has a complexity of O(n + m).
+- The shortest path task using BFS has a complexity of O(n + m).

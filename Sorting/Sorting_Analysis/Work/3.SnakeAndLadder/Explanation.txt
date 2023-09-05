@@ -1,0 +1,57 @@
+To solve the given tasks of verifying the conditions of a Snakes and Ladders board and finding the shortest sequence of dice rolls to reach the goal, we'll create a Python program that models the game using a graph representation. We'll then implement the two tasks as described.
+
+### Game Modeling:
+
+We model the Snakes and Ladders game as a graph with nodes and edges. Each square on the board is a node, and edges represent possible moves based on dice rolls or snakes/ladders. Here's how we represent the game:
+
+1. **Graph Nodes:** Each square on the n×n game board is a node in the graph, numbered consecutively from 1 to n². The node numbering starts from the bottom left corner and proceeds row by row from bottom to top, with rows alternating left and right.
+
+2. **Graph Edges:** Edges connect nodes based on possible moves:
+   - If a square has a ladder or snake, there is a directed edge to the destination square.
+   - If a square doesn't have a ladder or snake, it connects to the next k squares reachable with dice rolls.
+
+3. **Edge Weights:** The edges are implicitly weighted, as each edge represents the number of dice rolls required to move from one square to another.
+
+### Abstract Data Type (ADT) Functions:
+
+We define the following ADT functions to manipulate and analyze the game board:
+
+1. `createGraph`: This function creates a graph representation of the game board, taking into account the positions of snakes and ladders. It returns an adjacency list.
+
+2. `getNeighbors`: This function returns the neighboring squares (nodes) that can be reached from a given square (position) on the game board. It considers the number of dice rolls (k) and whether there are snakes or ladders on the path.
+
+### Task 1: Verify Board Conditions
+
+**Task 1.1: Check if There's a Path to the Goal:**
+- We use Breadth-First Search (BFS) to check if there's at least one path from the starting position to the goal. This verification ensures that players can complete the game.
+
+**Task 1.2: Check for Snake and Ladder Overlaps:**
+- This task ensures that no two snakes or ladders start or end at the same square on the game board. If multiple snakes or ladders overlap, it's considered an invalid board.
+
+**Task 1.3: Check for Cycles:**
+- We check if the game board contains cycles using a topological sort-based approach. Cycles indicate that there's no way to reach the goal from the starting position.
+
+**Task 1.4: Check for a Direct Path from Start to End:**
+- This task verifies that there is no direct path (ladder) from the starting position to the destination (goal). Having a ladder from start to end would make the game trivial.
+
+### Task 2: Find Shortest Sequence of Dice Rolls
+
+**Task 2: Find the Shortest Path to the Goal:**
+- We aim to find the shortest sequence of dice rolls (minimum number of moves) to reach the goal from the starting position.
+- We achieve this by applying BFS on the graph, treating each edge as having a weight of 1.
+- Backtracking is used to reconstruct the shortest path once the goal is reached.
+
+### Complexity Analysis:
+
+- The complexity for creating the graph is O(n²) because we iterate through each square.
+- The complexity for BFS-based tasks is O(n + m), where n is the number of vertices (squares) and m is the number of edges (snakes and ladders).
+- The topological sort-based cycle detection task also has a complexity of O(n + m).
+- The shortest path task using BFS has a complexity of O(n + m).
+
+### Correctness Analysis:
+
+- The correctness of the algorithms is ensured by checking for the conditions described in the tasks.
+- We validate the existence of a path to the goal, absence of snake/ladder overlaps, absence of cycles, and no direct path from start to end.
+- The BFS-based shortest path algorithm guarantees correctness in finding the shortest sequence of dice rolls.
+
+Now, let's implement this approach into Python code and create a program that can verify Snakes and Ladders boards and find the shortest path to the goal.

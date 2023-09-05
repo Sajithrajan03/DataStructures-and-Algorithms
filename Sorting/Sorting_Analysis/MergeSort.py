@@ -30,3 +30,5 @@ a = [(random.randrange(1,20)) for _ in range(0,10)]
 print(a)
 mergesort(a,0,len(a)-1)
 print(a)
+
+
