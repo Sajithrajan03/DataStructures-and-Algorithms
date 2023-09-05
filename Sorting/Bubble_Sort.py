@@ -7,6 +7,7 @@ for k in range(0,n-1):
         iter +=1
         if a[i]>a[i+1]:
             a[i],a[i+1] = a[i+1],a[i]
+    print(a)
 
     
 print(a,iter)
