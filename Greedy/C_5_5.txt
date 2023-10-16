@@ -1,0 +1,38 @@
+The correctness of this algorithm  
+
+1. Sorting Operation:
+   - The algorithm sorts the list of paintings, X, in ascending order. 
+   This step is crucial to ensure that the paintings are processed from left to right.
+
+2. Initialization:
+   - The algorithm initializes variables, such as n (the number of paintings), guards (a list to store guard positions), 
+   and i (an index variable) to keep track of the current position in the sorted array.
+
+3. Guard Placement Loop:
+   - The algorithm enters a loop that iterates through the sorted list of paintings.
+
+4. Finding Leftmost Uncovered Painting:
+   - Within each iteration, it identifies the leftmost uncovered painting position, which is the current value of X[i].
+
+5. Covering Paintings with Guards:
+   - The algorithm then moves to the right in the sorted list to find the rightmost painting position that can be covered by a single guard. This is done by repeatedly incrementing i while the difference between X[i] and the leftmost uncovered painting position (leftmost_uncovered) is less than or equal to 1.
+   - When this loop completes, it identifies a range of paintings that can be covered by a single guard. The algorithm appends the position just to the right of the rightmost covered painting to the guards list, indicating that a guard should be placed at that position.
+
+6. Termination:
+   - The algorithm continues this process until it has processed all positions in the sorted array.
+
+7. Output:
+   - Finally, the algorithm returns the guards list, which contains the positions of the guards.
+
+Alternative Strategy :
+
+Sort the positions of precious things.
+Iterate through the sorted positions and place a guard at the rightmost possible location within their range.
+If a precious thing cannot be covered by the guard, place a guard at that position.
+Correctness Analysis:
+
+This strategy is also greedy but addresses the counterexample mentioned above.
+It ensures that each precious thing is covered optimally by the fewest guards possible.
+Counterexample:
+
+For the case where 'r' is set to 1 and the positions of precious things are [1, 2, 3, 4], this alternative strategy will correctly place one guard at position 2 to cover all the precious things.

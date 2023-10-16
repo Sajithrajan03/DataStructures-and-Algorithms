@@ -1,0 +1,12 @@
+This algorithm performs a BFS from each station and records all stations that can be reached within 4 links or fewer. It uses a dictionary to store the reachable stations for each station.
+
+ 
+
+Initialize an empty dictionary reachable to store the reachable stations for each station.
+Iterate through each station in the graph.
+For each station, perform a BFS to explore the network, keeping track of the visited stations and the distance from the current station.
+If the distance exceeds 4, skip further exploration from that station.
+Add the reachable stations to the reachable dictionary for the current station.
+Repeat the process for all stations in the network.
+Finally, print the reachable stations for each station.
+The algorithm efficiently computes the set of stations that each station can reach using no more than 4 links in the network represented by the given graph.

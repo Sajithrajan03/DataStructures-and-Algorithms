@@ -48,7 +48,7 @@ class SnakesAndLadders:
 
     def noSnakeLadderInSameSquare(self):
         occurence = [0] * (self.size + 1)
-        
+
         for i in range(1, self.size + 1):
             if len(self.adjacency_list[i]) > 1:
                 return False
@@ -80,7 +80,10 @@ class SnakesAndLadders:
         return self.size not in self.adjacency_list[1]
 
     def shortestPath(self):
-        if not self.canReachGoal() or not self.noSnakeLadderInSameSquare() or not self.noDirectPathFromStartToEnd() or self.isCyclicBasedOnTopologicalSort():
+        if  len(self.adjacency_list[100])!=0 :
+            print("Board is invalid. No Snake at 100.")
+            return None
+        elif not self.canReachGoal() or not self.noSnakeLadderInSameSquare() or not self.noDirectPathFromStartToEnd() or self.isCyclicBasedOnTopologicalSort():
             print("Board is invalid. Cannot find shortest path.")
             return None
 
@@ -177,7 +180,7 @@ if __name__ == "__main__":
         {
             "size": 100,
             "snakes": [(16, 6), (47, 26), (49, 11), (56, 53), (62, 19), (64, 60), (87, 24), (93, 73), (95, 75), (98, 78)],
-            "ladders": [(1, 38), (4, 14), (9, 31), (21, 42), (28, 84), (36, 44), (51, 67), (71, 91), (80, 100), (1, 100)],
+            "ladders": [(3, 38), (4, 14), (9, 31), (21, 42), (28, 84), (36, 44), (51, 67), (71, 91), (80, 81), (1, 100)],
             "k": 6,
         },
     ]

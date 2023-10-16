@@ -1,0 +1,14 @@
+Create a weighted graph G = (V, E) where V is the set of stations and E is the set of all possible channels between stations. The weight (w(e)) of an edge e ∈ E is defined as the bandwidth of the corresponding channel.
+
+Sort the edges in E in non-decreasing order of their weights (bandwidths).
+
+Initialize an empty set of selected channels and an empty set of connected stations.
+
+Iterate through the sorted edges (from lowest to highest bandwidth):
+
+If adding the current edge to the selected channels does not create a cycle in the graph (i.e., the two stations connected by the edge are not already in the same connected component), add the edge to the selected channels, and merge the connected components of the two stations.
+Continue this process until you have selected n-1 channels.
+
+The selected channels will form a maximum spanning tree in the graph, and the sum of their weights (bandwidths) will be the maximum total bandwidth.
+
+The worst-case time complexity of this algorithm is dominated by the sorting step, which takes O(E log E) time, where E is the number of edges (channels). The other operations, such as union-find operations and iterating through the sorted edges, are relatively efficient and do not significantly affect the overall time complexity.
