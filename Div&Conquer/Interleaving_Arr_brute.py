@@ -1,25 +1,18 @@
-a = [x for x in range(1,5)]
-b = [x for x in range(5,9)]
-from itertools import islice
+import math
 
-def inShuffle_DC(arr):
-    size = len(arr)
-    if size < 2 or (size & (size - 1)) != 0:
-        raise ValueError("Array size must be a power of two and at least 2")
-
-    middle = size // 2
-    first_half = arr[:middle]
-    second_half = arr[middle:]
-
-    for i in range(middle // 2):
-        first_half[i], second_half[i] = second_half[i], first_half[i]
-
-    if size >= 4:
-        inShuffle_DC(first_half)
-        inShuffle_DC(second_half)
+def divide_and_interleave(arr, low,mid, high):
+    if high - low < 2:
+        return
+    mid = low+ math.ceil((high-low)/2)
+    hmid = low + math.ceil((mid - low) / 2)
+    hfull = mid + math.ceil((high - low) / 2)
+                                                                                                                                                                
+    arr[low:hmid], arr[mid:hfull] = arr[mid:hfull], arr[low:hmid]
+    print(hmid,hfull,arr)
+    divide_and_interleave(arr, low, hmid, mid)
+    divide_and_interleave(arr, mid, hfull, high)
 
 # Example usage:
-arr = [1, 2, 3, 4, 'a', 'b', 'c', 'd']
-inShuffle_DC(arr)
-print(arr)  # Output: [1, 'c', 'a', 'd', 2, 'b', 3, 4]
-
+arr1 = [1, 2, 3, 4, 'a', 'b', 'c', 'd']
+divide_and_interleave(arr1, 0, 4, 8)
+print(arr1)  # Output: [1, 'a', 2, 'b', 3, 'c', 4, 'd']
