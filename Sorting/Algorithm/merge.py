@@ -1,34 +1,30 @@
-def mergesort(arr,low,high):
-    if low<high:
-        mid = (low+high)//2
-        mergesort(arr,low,mid)
-        mergesort(arr,mid+1,high)
-        merge(arr,low,mid,high)
-
-def merge(arr,low,mid,high):
-    temp = list()
-    left = low
-    right= mid+1
-    while(left<=mid and right<=high):
-        if arr[left]<arr[right]:
-            temp.append(arr[left])
-            left+=1
+def merge(arr,low,high):
+    if high>low:
+        mid=  (low+high)//2
+        merge(arr,low,mid)
+        merge(arr,mid+1,high)
+        merge_sort(arr,low,mid,high)
+    
+def merge_sort(arr,low,mid,high):
+    i = low
+    j = mid+1
+    temp = []
+    while i<=mid and j<=high:
+        if arr[i]>arr[j]:
+            temp.append(arr[j])
+            j +=1
         else:
-            temp.append(arr[right])
-            right+=1
-    while(left<=mid):
-        temp.append(arr[left])
-        left+=1
-    while(right<=high):
-        temp.append(arr[right])
-        right+=1
+            temp.append(arr[i])
+            i +=1
+    while i<=mid:
+        temp.append(arr[i])
+        i +=1
+    while j<=high:
+        temp.append(arr[j])
+        j +=1
     for i in range(low,high+1):
-        arr[i]= temp[i-low]
-
-import random
-a = [(random.randrange(1,20)) for _ in range(0,10)]
-print(a)
-mergesort(a,0,len(a)-1)
-print(a)
-
-
+        arr[i] = temp[i-low]
+    
+arr = [1,2,60,3,14,0,90,12]
+merge(arr,0,len(arr)-1)
+print(arr)
