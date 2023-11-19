@@ -1,4 +1,4 @@
-class Solution:
+class N_Queens:
     def issave(self, row, col, board, n):
         a = row
         b = col
@@ -46,6 +46,6 @@ class Solution:
         return correct[:3]  # Return at most 3 solutions
 
 
-s = Solution()
+s = N_Queens()
 for i in range(4, 9):
     print(f"For N = {i}:\n{s.solveNQueens(i)}\n")

@@ -2,7 +2,7 @@ def MaximaSet(S):
     # Base case: If the set S has only one point, return S
     if len(S) == 1:
         return S
-
+    
     # Find the median point p in S by lexicographic (r)-coordinates
     p_index = len(S) // 2
     p = sorted(S, key=lambda point: (point[0], point[1]))[p_index]

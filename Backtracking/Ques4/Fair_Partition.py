@@ -29,8 +29,8 @@ def fair_partition(arr, k):
 
     return partitioned_arr
 
-# Test the algorithm and print the partitioned array
+
 arr = [100, 400, 300, 400, 500, 600, 700, 800, 100]
-k = 3
+k = 3 #no of guys to be partitioned
 result = fair_partition(arr, k)
-print("Fair partitioning result:", result)
+print("Fair partitioning", result)

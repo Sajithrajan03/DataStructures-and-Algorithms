@@ -1,0 +1,4 @@
+Input: 4
+Output: [['..Q.', 'Q...', '...Q', '.Q..'], ['.Q..', '...Q', 'Q...', '..Q.']]
+
+//first 3 potential solution
