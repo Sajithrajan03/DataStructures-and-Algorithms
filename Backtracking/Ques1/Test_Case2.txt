@@ -1,0 +1,2 @@
+Input : {'Sajith': {'Ananya'}, 'Ananya': {'Sajith'}, 'Praveen': {'Karthick'}, 'Karthick': {'Praveen'}}
+Output : {'Sajith', 'Praveen'}
